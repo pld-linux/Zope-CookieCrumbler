@@ -15,8 +15,6 @@ Requires:	Zope
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         product_dir     /usr/lib/zope/Products
-
 %description
 CookieCrumbler is Zope product that enables cookie-based
 authentication.
@@ -34,29 +32,33 @@ mv -f {CHANGES.txt,README.txt} docs
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
-cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af * $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-%py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
-%py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
-rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/docs
+rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
 if [ -f /var/lock/subsys/zope ]; then
-        /etc/rc.d/init.d/zope restart >&2
+	/etc/rc.d/init.d/zope restart >&2
 fi
 
 %postun
-if [ -f /var/lock/subsys/zope ]; then
-        /etc/rc.d/init.d/zope restart >&2
+if [ "$1" = "0" ]; then
+	/usr/sbin/installzopeproduct -d %{zope_subname} 
+	if [ -f /var/lock/subsys/zope ]; then
+		/etc/rc.d/init.d/zope restart >&2
+	fi
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc docs/*
-%{product_dir}/%{zope_subname}
+%{_datadir}/%{name}

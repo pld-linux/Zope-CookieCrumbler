@@ -1,7 +1,7 @@
 %include        /usr/lib/rpm/macros.python
 %define 	zope_subname	CookieCrumbler
-Summary:	CookieCrumbler is Zope product that enables cookie-based authentication
-Summary(pl):	CookieCrumbler jest dodatkiem do Zope umo¿liwiaj±cym autentykacje przez cookies
+Summary:	CookieCrumbler - Zope product that enables cookie-based authentication
+Summary(pl):	CookieCrumbler - dodatek do Zope umo¿liwiaj±cy autentykacjê przez cookies
 Name:		Zope-%{zope_subname}
 Version:	1.1
 Release:	1
@@ -19,11 +19,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 CookieCrumbler is Zope product that enables cookie-based
-authentication
+authentication.
 
 %description -l pl
-CookieCrumbler jest dodatkiem do Zope umo¿liwiaj±cym autentykacje
-przez cookies
+CookieCrumbler jest dodatkiem do Zope umo¿liwiaj±cym autentykacjê
+przez cookies.
 
 %prep
 %setup -q -n %{zope_subname}

@@ -4,7 +4,7 @@ Summary:	CookieCrumbler - Zope product that enables cookie-based authentication
 Summary(pl):	CookieCrumbler - dodatek do Zope umo¿liwiaj±cy uwierzytelnianie przez cookies
 Name:		Zope-%{zope_subname}
 Version:	1.1
-Release:	1
+Release:	2
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://hathaway.freezope.org/Software/%{zope_subname}/%{zope_subname}-%{version}.tar.gz
@@ -12,6 +12,7 @@ Source0:	http://hathaway.freezope.org/Software/%{zope_subname}/%{zope_subname}-%
 URL:		http://hathaway.freezope.org/Software/%{zope_subname}
 %pyrequires_eq  python-modules
 Requires:	Zope
+Requires(post,postun):  /usr/sbin/installzopeproduct
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

@@ -9,6 +9,7 @@ Group:		Development/Tools
 Source0:	http://hathawaymix.org/Software/%{zope_subname}/%{zope_subname}-%{version}.tar.gz
 # Source0-md5:	7dbb67adaa6ce552456d8817da4b15d8
 URL:		http://hathawaymix.org/Software/CookieCrumbler/
+BuildRequires:  python
 %pyrequires_eq  python-modules
 Requires:	Zope
 Requires(post,postun):  /usr/sbin/installzopeproduct

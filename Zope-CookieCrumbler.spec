@@ -3,7 +3,7 @@ Summary:	Zope product that enables cookie-based authentication
 Summary(pl):	Dodatek do Zope umo¿liwiaj±cy uwierzytelnianie przez cookies
 Name:		Zope-%{zope_subname}
 Version:	1.2
-Release:	1
+Release:	2
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://hathawaymix.org/Software/%{zope_subname}/%{zope_subname}-%{version}.tar.gz

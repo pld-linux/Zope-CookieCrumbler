@@ -3,13 +3,13 @@
 Summary:	Zope product that enables cookie-based authentication
 Summary(pl):	Dodatek do Zope umo¿liwiaj±cy uwierzytelnianie przez cookies
 Name:		Zope-%{zope_subname}
-Version:	1.1
-Release:	2
+Version:	1.2
+Release:	1
 License:	ZPL 2.0
 Group:		Development/Tools
-Source0:	http://hathaway.freezope.org/Software/%{zope_subname}/%{zope_subname}-%{version}.tar.gz
-# Source0-md5:	427421815e94601c04c87326fc6819c1
-URL:		http://hathaway.freezope.org/Software/%{zope_subname}
+Source0:	http://hathawaymix.org/Software/%{zope_subname}/%{zope_subname}-%{version}.tar.gz
+# Source0-md5:	7dbb67adaa6ce552456d8817da4b15d8
+URL:		http://hathawaymix.org/Software/CookieCrumbler/
 %pyrequires_eq  python-modules
 Requires:	Zope
 Requires(post,postun):  /usr/sbin/installzopeproduct
@@ -28,13 +28,11 @@ przez cookies.
 %setup -q -n %{zope_subname}
 
 %build
-mkdir docs
-mv -f {CHANGES.txt,README.txt} docs
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
-cp -af * $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {dtml,tests,*.py,*.gif,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -61,5 +59,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*
+%doc CHANGES.txt README.txt
 %{_datadir}/%{name}

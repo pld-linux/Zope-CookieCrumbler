@@ -1,6 +1,6 @@
 %define 	zope_subname	CookieCrumbler
 Summary:	Zope product that enables cookie-based authentication
-Summary(pl.UTF-8):   Dodatek do Zope umożliwiający uwierzytelnianie przez cookies
+Summary(pl.UTF-8):	Dodatek do Zope umożliwiający uwierzytelnianie przez cookies
 Name:		Zope-%{zope_subname}
 Version:	1.2
 Release:	2

@@ -1,6 +1,6 @@
 %define 	zope_subname	CookieCrumbler
 Summary:	Zope product that enables cookie-based authentication
-Summary(pl):	Dodatek do Zope umo¿liwiaj±cy uwierzytelnianie przez cookies
+Summary(pl.UTF-8):   Dodatek do Zope umoÅ¼liwiajÄ…cy uwierzytelnianie przez cookies
 Name:		Zope-%{zope_subname}
 Version:	1.2
 Release:	2
@@ -21,8 +21,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 CookieCrumbler is Zope product that enables cookie-based
 authentication.
 
-%description -l pl
-CookieCrumbler jest dodatkiem do Zope umo¿liwiaj±cym uwierzytelnianie
+%description -l pl.UTF-8
+CookieCrumbler jest dodatkiem do Zope umoÅ¼liwiajÄ…cym uwierzytelnianie
 przez cookies.
 
 %prep
